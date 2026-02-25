@@ -1,0 +1,63 @@
+{
+  "kind": "coverage_report",
+  "version": "1.0",
+  "generatedAt": "2026-02-25T15:18:40.548Z",
+  "sources": {
+    "buildRequest": true,
+    "implementationPlan": true
+  },
+  "requirements": {
+    "total": 3,
+    "implemented": 2,
+    "items": [
+      {
+        "id": "REQ-15",
+        "summary": "On the OTP login page, after a user successfully verifies their OTP, check if the logged-in mobile number is '9422018674'. If it matches, redirect to the admin panel route (/admin). For all other users, redirect to the user dashboard (/dashboard). Ensure this redirect logic is clearly implemented and reliable.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/LoginPage.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/LoginPage.tsx",
+          "frontend/src/hooks/useQueries.ts"
+        ]
+      },
+      {
+        "id": "REQ-16",
+        "summary": "Ensure the admin panel page (/admin route) enforces access control: only the user authenticated with mobile number '9422018674' can view it. Any other authenticated user who navigates to /admin should be redirected to /dashboard.",
+        "status": "implemented",
+        "plannedFiles": [
+          "frontend/src/pages/AdminPanel.tsx",
+          "frontend/src/components/Layout.tsx"
+        ],
+        "matchedFiles": [
+          "frontend/src/pages/AdminPanel.tsx",
+          "frontend/src/components/Layout.tsx"
+        ]
+      },
+      {
+        "id": "REQ-17",
+        "summary": "In the backend, ensure the admin account with mobile number '9422018674' is pre-seeded or auto-created on first OTP request if not already registered, so admin can always log in via OTP without needing to go through the registration flow.",
+        "status": "unknown",
+        "plannedFiles": [],
+        "matchedFiles": []
+      }
+    ]
+  },
+  "changedFiles": [
+    "build-request.json",
+    "build-template/README.md",
+    "feature_evidence.json",
+    "frontend-file-summaries.txt",
+    "frontend-implementation-plan.json",
+    "frontend/src/components/Layout.tsx",
+    "frontend/src/hooks/useQueries.ts",
+    "frontend/src/pages/AdminPanel.tsx",
+    "frontend/src/pages/LoginPage.tsx",
+    "project_state.json",
+    "scratch/component-selection.json",
+    "spec.md",
+    "spec_vs_diff_report.json"
+  ]
+}

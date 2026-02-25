@@ -1,0 +1,198 @@
+{
+  "schemaVersion": "1.0.0",
+  "projectStateVersion": 5,
+  "summary": "Smart Chain Earnings MLM/referral platform with admin panel, OTP login via mobile number, user dashboard showing total income, referral code system, deposit/withdrawal, level income with 1% commission, and total team member tracking.",
+  "architectural_notes": [
+    "MLM/referral platform: users can have multi-level downlines with level income tracking",
+    "OTP login uses mobile number (e.g., 9422018674) as identifier",
+    "1% commission applied at each level of the referral chain"
+  ],
+  "known_issues": [],
+  "isFixRequest": false,
+  "existing_features": [
+    {
+      "id": "feature-build-an-otp-login-page-as-the-app-entry-point-display-a-mobile-number-input-field-and-a-send-otp-button-after-otp-is-sent-show-a-6-digit-otp-input-field-and-a-verify-login-button-on-success-redirect-to-the-user-dashboard-or-admin-panel-based-on-the-logged-in-mobile-number",
+      "title": "Build an OTP login page as the app entry point. Display a mobile number input field and a 'Send OTP' button. After OTP is sent, show a 6-digit OTP input field and a 'Verify & Login' button. On success, redirect to the user dashboard or admin panel based on the logged-in mobile number.",
+      "reqIds": [
+        "REQ-7"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-user-registration-page-accessible-from-the-login-screen-include-fields-for-name-mobile-number-password-optional-and-referral-code-optional-on-submit-call-the-register-backend-function-and-redirect-to-login-on-success",
+      "title": "Build a user registration page accessible from the login screen. Include fields for name, mobile number, password (optional), and referral code (optional). On submit, call the register backend function and redirect to login on success.",
+      "reqIds": [
+        "REQ-8"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-the-user-dashboard-page-showing-user-s-name-and-unique-referral-code-with-a-copy-button-wallet-balance-total-income-level-income-earned-deposit-total-withdrawal-total-total-team-members-count-and-a-level-income-milestone-progress-table-levels-1-10-with-team-size-target-and-reward",
+      "title": "Build the user dashboard page showing: user's name and unique referral code with a copy button, wallet balance, total income, level income earned, deposit total, withdrawal total, total team members count, and a level income milestone progress table (levels 1–10 with team size target and reward).",
+      "reqIds": [
+        "REQ-9"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-deposit-page-where-users-can-enter-an-amount-and-submit-a-deposit-request-display-the-admin-upi-id-9422018674-kotak811-and-a-qr-code-image-for-payment-after-submission-record-the-deposit-in-the-backend",
+      "title": "Build a deposit page where users can enter an amount and submit a deposit request. Display the admin UPI ID (9422018674@kotak811) and a QR code image for payment. After submission, record the deposit in the backend.",
+      "reqIds": [
+        "REQ-10"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-withdrawal-page-where-users-can-enter-a-withdrawal-amount-and-submit-a-request-show-current-wallet-balance-and-minimum-withdrawal-info-submission-creates-a-pending-withdrawal-transaction-in-the-backend",
+      "title": "Build a withdrawal page where users can enter a withdrawal amount and submit a request. Show current wallet balance and minimum withdrawal info. Submission creates a pending withdrawal transaction in the backend.",
+      "reqIds": [
+        "REQ-11"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-a-team-page-showing-the-user-s-direct-referrals-and-total-downline-count-broken-down-by-level-level-1-through-level-10-display-each-level-s-member-count-and-the-corresponding-reward-milestone-from-the-plan",
+      "title": "Build a team page showing the user's direct referrals and total downline count broken down by level (Level 1 through Level 10). Display each level's member count and the corresponding reward milestone from the plan.",
+      "reqIds": [
+        "REQ-12"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-build-an-admin-panel-accessible-only-to-the-user-logged-in-with-mobile-9422018674-include-tabs-or-sections-for-all-users-searchable-list-with-balance-income-team-size-all-transactions-deposits-withdrawals-commissions-with-filter-by-type-pending-withdrawals-approve-reject-actions-and-platform-stats-total-users-total-deposits-total-withdrawals",
+      "title": "Build an admin panel accessible only to the user logged in with mobile 9422018674. Include tabs or sections for: All Users (searchable list with balance, income, team size), All Transactions (deposits, withdrawals, commissions with filter by type), Pending Withdrawals (approve/reject actions), and Platform Stats (total users, total deposits, total withdrawals).",
+      "reqIds": [
+        "REQ-13"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-apply-a-consistent-visual-theme-across-the-entire-app-inspired-by-the-uploaded-varad-finance-plan-dark-navy-deep-blue-background-with-gold-ffd700-and-white-typography-gradient-gold-accents-on-cards-and-buttons-green-checkmark-highlights-for-milestones-and-a-financial-authority-aesthetic-use-bold-headings-card-based-layouts-and-a-bottom-navigation-bar-for-mobile-first-experience",
+      "title": "Apply a consistent visual theme across the entire app inspired by the uploaded Varad Finance plan: dark navy/deep blue background with gold (#FFD700) and white typography, gradient gold accents on cards and buttons, green checkmark highlights for milestones, and a financial-authority aesthetic. Use bold headings, card-based layouts, and a bottom navigation bar for mobile-first experience.",
+      "reqIds": [
+        "REQ-14"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-on-the-otp-login-page-after-a-user-successfully-verifies-their-otp-check-if-the-logged-in-mobile-number-is-9422018674-if-it-matches-redirect-to-the-admin-panel-route-admin-for-all-other-users-redirect-to-the-user-dashboard-dashboard-ensure-this-redirect-logic-is-clearly-implemented-and-reliable",
+      "title": "On the OTP login page, after a user successfully verifies their OTP, check if the logged-in mobile number is '9422018674'. If it matches, redirect to the admin panel route (/admin). For all other users, redirect to the user dashboard (/dashboard). Ensure this redirect logic is clearly implemented and reliable.",
+      "reqIds": [
+        "REQ-15"
+      ],
+      "version": 1
+    },
+    {
+      "id": "feature-ensure-the-admin-panel-page-admin-route-enforces-access-control-only-the-user-authenticated-with-mobile-number-9422018674-can-view-it-any-other-authenticated-user-who-navigates-to-admin-should-be-redirected-to-dashboard",
+      "title": "Ensure the admin panel page (/admin route) enforces access control: only the user authenticated with mobile number '9422018674' can view it. Any other authenticated user who navigates to /admin should be redirected to /dashboard.",
+      "reqIds": [
+        "REQ-16"
+      ],
+      "version": 1
+    }
+  ],
+  "new_feature_requests": [
+    {
+      "id": "AR-1",
+      "summary": "Admin panel for managing users, transactions, and platform settings",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-2",
+      "summary": "Mobile number OTP login/authentication",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-3",
+      "summary": "Referral code system for user invitations",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-4",
+      "summary": "User dashboard showing total income, referral code, and team stats",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-5",
+      "summary": "Deposit and withdrawal functionality",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-6",
+      "summary": "Level income with 1% commission on downline earnings",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-7",
+      "summary": "Total team member count and hierarchy display",
+      "reqIds": [],
+      "status": "pending"
+    },
+    {
+      "id": "AR-8",
+      "summary": "Create a Motoko backend actor that stores and manages all platform data: users (mobile number, name, referral code, upline referral code, wallet balance, total income, level income, deposit total, withdrawal total, registration timestamp, OTP for login), transactions (deposit, withdrawal, level commission), and team hierarchy (downline relationships up to 10 levels deep).",
+      "reqIds": [
+        "REQ-1"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-9",
+      "summary": "Implement OTP-based mobile number authentication in the backend. When a user submits their mobile number, generate and store a 6-digit OTP (simulated, logged, or stored in state since SMS is not supported). Provide a verify OTP function that grants a session token on success. Include the admin account pre-seeded with mobile number 9422018674.",
+      "reqIds": [
+        "REQ-2"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-10",
+      "summary": "Implement user registration with referral code. A new user registers by providing their name, mobile number, and an optional referral code. If a valid referral code is provided, link the new user as a direct downline of the referrer. Auto-generate a unique referral code for the new user upon registration. Charge a registration fee of ₹100 (deducted from initial deposit).",
+      "reqIds": [
+        "REQ-3"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-11",
+      "summary": "Implement level income commission logic. When a user makes a deposit, distribute 1% commission to each upline member across up to 10 levels. Track and accumulate level income per user. The level income structure follows: Level 1 team size 5 → ₹100, Level 2 team size 25 → ₹1,000, Level 3 team size 125 → ₹3,000, Level 4 team size 625 → ₹9,000, Level 5 team size 3,125 → ₹12,000, Level 6 team size 15,625 → ₹24,000, Level 7 team size 78,125 → ₹35,000, Level 8 team size 3,90,625 → Goa Tour reward, Level 9 team size 19,53,125 → ₹80,000, Level 10 team size 97,65,625 → ₹1,00,000 + Foreign Tour.",
+      "reqIds": [
+        "REQ-4"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-12",
+      "summary": "Implement deposit and withdrawal functions in the backend. Deposit adds to user wallet balance and triggers level commission distribution. Withdrawal deducts from wallet balance if sufficient funds exist and records a withdrawal transaction. Provide functions to list transaction history per user.",
+      "reqIds": [
+        "REQ-5"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-13",
+      "summary": "Implement admin backend functions: get all users with stats, get all transactions, approve or reject withdrawal requests, view total platform deposits and withdrawals, and view full team hierarchy of any user.",
+      "reqIds": [
+        "REQ-6"
+      ],
+      "status": "pending"
+    },
+    {
+      "id": "AR-16",
+      "summary": "In the backend, ensure the admin account with mobile number '9422018674' is pre-seeded or auto-created on first OTP request if not already registered, so admin can always log in via OTP without needing to go through the registration flow.",
+      "reqIds": [
+        "REQ-17"
+      ],
+      "status": "pending"
+    }
+  ],
+  "gameProjectType": "none",
+  "projectName": "Smart Chain Earnings",
+  "clarification_mode": "instant",
+  "clarification_rounds": 0
+}

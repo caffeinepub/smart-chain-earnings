@@ -1,0 +1,77 @@
+{
+  "kind": "build_request",
+  "title": "Fix OTP Login to correctly redirect admin (9422018674) to Admin Panel",
+  "priority": "high",
+  "requirements": [
+    {
+      "id": "REQ-15",
+      "text": "On the OTP login page, after a user successfully verifies their OTP, check if the logged-in mobile number is '9422018674'. If it matches, redirect to the admin panel route (/admin). For all other users, redirect to the user dashboard (/dashboard). Ensure this redirect logic is clearly implemented and reliable.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "admin panel 9422018674 otp login"
+        ]
+      },
+      "acceptanceCriteria": [
+        "When mobile number 9422018674 successfully verifies OTP, the app redirects to the /admin route",
+        "When any other mobile number successfully verifies OTP, the app redirects to the /dashboard route",
+        "The login page shows the mobile number input field and 'Send OTP' button as the first step",
+        "After OTP is sent, a 6-digit OTP input field and 'Verify & Login' button are displayed",
+        "Failed OTP verification shows an error message and does not redirect"
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "text": "Ensure the admin panel page (/admin route) enforces access control: only the user authenticated with mobile number '9422018674' can view it. Any other authenticated user who navigates to /admin should be redirected to /dashboard.",
+      "target": "frontend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "admin panel 9422018674 otp login"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Navigating to /admin while logged in as a non-admin user redirects to /dashboard",
+        "Navigating to /admin while logged in as 9422018674 shows the admin panel",
+        "Navigating to /admin while not logged in redirects to /login"
+      ]
+    },
+    {
+      "id": "REQ-17",
+      "text": "In the backend, ensure the admin account with mobile number '9422018674' is pre-seeded or auto-created on first OTP request if not already registered, so admin can always log in via OTP without needing to go through the registration flow.",
+      "target": "backend",
+      "source": {
+        "messageIds": [
+          "msg-1"
+        ],
+        "quotes": [
+          "admin panel 9422018674 otp login"
+        ]
+      },
+      "acceptanceCriteria": [
+        "Calling sendOtp with mobile '9422018674' always succeeds even if no registered profile exists",
+        "The admin account with mobile '9422018674' exists in the backend user store after first OTP request",
+        "The generated OTP for '9422018674' can be retrieved or is accessible for login verification"
+      ]
+    }
+  ],
+  "constraints": [
+    "Admin mobile number is exactly '9422018674' — do not change or parameterize this value",
+    "Do not modify files under frontend/src/hooks/ or frontend/src/components/ui",
+    "All Motoko logic must remain in the single backend/main.mo actor"
+  ],
+  "nonGoals": [
+    "Adding new admin features beyond what is already implemented",
+    "Changing the visual theme or layout of existing pages",
+    "Implementing SMS delivery for OTP — OTP remains simulated/stored in state"
+  ],
+  "imageRequirements": {
+    "required": [],
+    "edits": []
+  }
+}

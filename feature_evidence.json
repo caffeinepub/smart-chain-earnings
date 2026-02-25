@@ -1,0 +1,47 @@
+{
+  "kind": "feature_evidence_report",
+  "features": [
+    {
+      "featureId": "feature-on-the-otp-login-page-after-a-user-successfully-verifies-their-otp-check-if-the-logged-in-mobile-number-is-9422018674-if-it-matches-redirect-to-the-admin-panel-route-admin-for-all-other-users-redirect-to-the-user-dashboard-dashboard-ensure-this-redirect-logic-is-clearly-implemented-and-reliable",
+      "featureTitle": "On the OTP login page, after a user successfully verifies their OTP, check if the logged-in mobile number is '9422018674'. If it matches, redirect to the admin panel route (/admin). For all other users, redirect to the user dashboard (/dashboard). Ensure this redirect logic is clearly implemented and reliable.",
+      "files": [
+        "frontend/src/hooks/useQueries.ts",
+        "frontend/src/pages/LoginPage.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-15"
+      ],
+      "confidence": "high"
+    },
+    {
+      "featureId": "feature-ensure-the-admin-panel-page-admin-route-enforces-access-control-only-the-user-authenticated-with-mobile-number-9422018674-can-view-it-any-other-authenticated-user-who-navigates-to-admin-should-be-redirected-to-dashboard",
+      "featureTitle": "Ensure the admin panel page (/admin route) enforces access control: only the user authenticated with mobile number '9422018674' can view it. Any other authenticated user who navigates to /admin should be redirected to /dashboard.",
+      "files": [
+        "frontend/src/components/Layout.tsx",
+        "frontend/src/pages/AdminPanel.tsx"
+      ],
+      "components": [
+        "authorization@4.0.0",
+        "blob-storage@4.0.0",
+        "core-infrastructure@1.0.2",
+        "shadcn-ui@1.0.0",
+        "build-template-react@1.0.0",
+        "initial-app@1.0.0",
+        "github-export-icp-cli@1.0.0"
+      ],
+      "testIds": [
+        "REQ-16"
+      ],
+      "confidence": "high"
+    }
+  ]
+}

@@ -1,0 +1,51 @@
+{
+  "kind": "implementation_plan",
+  "version": "1.0",
+  "title": "Fix OTP Login to correctly redirect admin (9422018674) to Admin Panel",
+  "requirements": [
+    {
+      "id": "REQ-15",
+      "summary": "Implement conditional redirect logic on OTP login page to route admin mobile number '9422018674' to /admin and all other users to /dashboard after successful OTP verification",
+      "acceptanceCriteria": [
+        "When mobile number 9422018674 successfully verifies OTP, the app redirects to the /admin route",
+        "When any other mobile number successfully verifies OTP, the app redirects to the /dashboard route",
+        "The login page shows the mobile number input field and 'Send OTP' button as the first step",
+        "After OTP is sent, a 6-digit OTP input field and 'Verify & Login' button are displayed",
+        "Failed OTP verification shows an error message and does not redirect"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/LoginPage.tsx",
+          "operation": "modify",
+          "description": "Replace Internet Identity authentication with OTP-based login flow. Implement two-step UI: first step shows mobile number input and 'Send OTP' button, second step shows 6-digit OTP input and 'Verify & Login' button. After successful OTP verification, extract the mobile number from the verified user profile and redirect to /admin if mobile is '9422018674', otherwise redirect to /dashboard. Handle OTP send/verify failures with error messages. Keep the existing hero banner and feature highlights for branding."
+        },
+        {
+          "path": "frontend/src/hooks/useQueries.ts",
+          "operation": "modify",
+          "description": "Add two new mutation hooks: useSendOtp (accepts mobile number, calls backend sendOtp capability, returns success/error) and useVerifyOtp (accepts mobile number and OTP code, calls backend verifyOtp capability, updates authentication state on success, returns user profile or error). Ensure these mutations integrate with React Query's mutation lifecycle and error handling."
+        }
+      ]
+    },
+    {
+      "id": "REQ-16",
+      "summary": "Add admin-only access control to the /admin route to ensure only user '9422018674' can access the admin panel, redirecting other authenticated users to /dashboard",
+      "acceptanceCriteria": [
+        "Navigating to /admin while logged in as a non-admin user redirects to /dashboard",
+        "Navigating to /admin while logged in as 9422018674 shows the admin panel",
+        "Navigating to /admin while not logged in redirects to /login"
+      ],
+      "file_operations": [
+        {
+          "path": "frontend/src/pages/AdminPanel.tsx",
+          "operation": "modify",
+          "description": "Add an access control check at the top of the component using useGetCallerUserProfile hook. If the user is not authenticated, redirect to /login. If authenticated but the user's mobileNumber is not '9422018674', redirect to /dashboard. Only render the admin panel content if the mobile number matches '9422018674'. Show a loading state while the profile is being fetched."
+        },
+        {
+          "path": "frontend/src/components/Layout.tsx",
+          "operation": "modify",
+          "description": "Update the protected layout logic to check the authenticated user's mobile number when routing to /admin. If a user with mobile number other than '9422018674' attempts to access /admin, redirect them to /dashboard before rendering the admin route. Preserve existing authentication checks and profile setup redirects for non-admin routes."
+        }
+      ]
+    }
+  ]
+}

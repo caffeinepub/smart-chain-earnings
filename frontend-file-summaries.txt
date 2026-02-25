@@ -1,0 +1,18 @@
+{
+  "frontend/src/index.css": "Global styles with dark navy/gold OKLCH color system, custom utility classes for gold gradients, card styles, button styles, and input styles for the Smart Chain Earnings theme.",
+  "frontend/tailwind.config.js": "Extended Tailwind config with Inter/Rajdhani fonts, gold/navy custom color tokens, gold box-shadow utilities, and shimmer animation.",
+  "frontend/src/hooks/useQueries.ts": "All React Query hooks for backend operations plus a simulated OTP system — `useSendOtp` generates and stores a 6-digit OTP in a module-level Map keyed by mobile number, and `useVerifyOtp` validates the OTP against the store with expiry checking.",
+  "frontend/src/App.tsx": "TanStack Router setup with code-based routing for all pages (login, register, dashboard, deposit, withdrawal, team, admin, profile setup) using a shared layout route.",
+  "frontend/src/components/Layout.tsx": "Protected layout wrapper that checks authentication and profile state, now also redirects non-admin authenticated users away from /admin to /dashboard, and renders the bottom nav bar for non-admin authenticated users.",
+  "frontend/src/components/BottomNavBar.tsx": "Fixed bottom navigation bar with Home, Deposit, Withdraw, and Team links, gold active state indicators, and mobile-first styling.",
+  "frontend/src/components/StatCard.tsx": "Reusable stat card component with optional gold highlight gradient, icon, label, value, and subtext for consistent dashboard metrics display.",
+  "frontend/src/components/LevelMilestoneTable.tsx": "Level income milestone table showing all 10 levels with team size targets, rewards (including Goa Tour and Foreign Tour specials), and achieved/pending status indicators.",
+  "frontend/src/pages/LoginPage.tsx": "Two-step OTP login page — step 1 collects a 10-digit mobile number and sends a simulated OTP, step 2 shows a 6-digit InputOTP field and verifies it, then redirects admin mobile (9422018674) to /admin and all others to /dashboard.",
+  "frontend/src/pages/RegisterPage.tsx": "Registration page with name, mobile, and referral code fields; creates a new user profile with auto-generated referral code and initializes their wallet.",
+  "frontend/src/pages/ProfileSetup.tsx": "First-time profile setup page for authenticated users who don't yet have a profile, collecting name, mobile, and optional referral code.",
+  "frontend/src/pages/UserDashboard.tsx": "User dashboard showing wallet balance hero card, income stats grid, referral code with copy/share, quick action buttons, recent transactions, and level milestone table.",
+  "frontend/src/pages/DepositPage.tsx": "Deposit page displaying UPI QR code and ID for payment, quick amount buttons, amount input, and deposit confirmation that updates wallet balance and profile totals.",
+  "frontend/src/pages/WithdrawalPage.tsx": "Withdrawal page showing available balance, percentage quick-select buttons, amount input with validation, progress bar, and withdrawal request submission.",
+  "frontend/src/pages/TeamPage.tsx": "Team page showing network stats, referral sharing, level commission structure breakdown, full milestone table, and key highlights.",
+  "frontend/src/pages/AdminPanel.tsx": "Admin-only panel with mobile-number-based access control — checks that the authenticated user's profile has mobileNumber === '9422018674', redirecting unauthenticated users to login and non-admin users to dashboard, then renders platform stats, users, transactions, and manage tabs."
+}
